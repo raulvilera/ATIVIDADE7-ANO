@@ -254,8 +254,28 @@ function setupTimer(index) {
 
 function handleSubmit(event) {
   event.preventDefault();
+
   const form = document.getElementById('atividadeForm');
-  const formData = new FormData(form);
+  const formData = new FormData();
+
+  // Pega nome, série e data
+  const nome = document.getElementById("nome").value;
+  const serie = document.getElementById("serie").value;
+  const data = document.getElementById("data").value;
+
+  formData.append("nome", nome);
+  formData.append("serie", serie);
+  formData.append("data", data);
+
+  // Coletar todas as respostas
+  const respostas = [];
+  for (let i = 0; i < 10; i++) {
+    const resposta = document.getElementById(`resposta${i}`).value.trim();
+    respostas.push(resposta);
+  }
+
+  // Enviar como JSON no campo "respostas"
+  formData.append("respostas", JSON.stringify(respostas));
 
   fetch("https://script.google.com/macros/s/AKfycbx6l03eNfMrrFvuytFbp3Tu1vGWiuFbBrmPd8K27yDMrlcKcKFcvf2Qewuvj3GSSc4/exec", {
     method: "POST",
@@ -265,7 +285,6 @@ function handleSubmit(event) {
   .then(data => {
     document.getElementById('successMessage').style.display = 'block';
     form.reset();
-    window.scrollTo(0, 0);
   })
   .catch(error => {
     alert('Erro ao enviar: ' + error);
