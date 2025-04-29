@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Atividade Avaliativa - Ciências - 2º Bimestre</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      font-size: 12px;
+      background-color: #d3d3d3;
+      margin: 0 10px;
+      color: white;
+    }
+    .header {
+      background-color: #000;
+      padding: 15px;
+      border-radius: 10px;
+      margin-bottom: 20px;
+      text-align: left;
+      position: relative;
+    }
+    .header-content {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 15px;
+      margin-bottom: 10px;
+    }
+    label {
+      font-weight: bold;
+    }
+    select, input[type="date"] {
+      padding: 5px;
+      font-size: 12px;
+      border: none;
+      border-radius: 5px;
+      color: black;
+    }
+    select#nome {
+      width: 500px;
+    }
+    select#serie {
+      width: auto;
+      min-width: 80px;
+    }
+    input[type="date"] {
+      width: 150px;
+    }
+    h2 {
+      text-align: center;
+      margin-top: 10px;
+      font-size: 16px;
+    }
+    .container {
+      background-color: #000;
+      border-radius: 10px;
+      padding: 15px;
+      margin-bottom: 10px;
+      position: relative;
+    }
+    textarea {
+      width: 100%;
+      padding: 8px;
+      margin-top: 8px;
+      font-size: 12px;
+      border: none;
+      border-radius: 5px;
+      resize: vertical;
+      min-height: 100px;
+      background-color: #f0f0f0;
+      color: black;
+    }
+    .question {
+      margin-bottom: 10px;
+      display: flex;
+      align-items: center;
+    }
+    .number {
+      color: red;
+      font-weight: bold;
+      margin-right: 5px;
+    }
+    .timer {
+      width: 25px;
+      height: 25px;
+      background-color: black;
+      border: 2px solid gold;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 8px;
+      font-weight: bold;
+      color: white;
+      margin-right: 8px;
+    }
+    .button-submit {
+      display: block;
+      margin: 30px auto;
+      padding: 10px 20px;
+      background-color: green;
+      color: white;
+      font-weight: bold;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      font-size: 14px;
+    }
+    .success-message {
+      text-align: center;
+      font-weight: bold;
+      color: limegreen;
+      margin-top: 20px;
+      display: none;
+    }
+    .date-container {
+      position: absolute;
+      top: 15px;
+      right: 15px;
+    }
+  </style>
+</head>
+<body>
+
+<form id="atividadeForm" onsubmit="handleSubmit(event)">
+  <div class="header">
+    <h1>E.E. "PROFª WANDA MASCAGNI DE SÁ"</h1>
+    <div class="header-content">
+      <label for="nome">Nome:</label>
+      <select id="nome" name="nome" required>
+        <!-- nomes dos alunos aqui (mantidos conforme solicitado) -->
+        <option>PEDRO HENRIQUE CORREA DE BRITO</option>
+        <option>PIETRO MARTINS NOBRE</option>
+        <option>RAFAEL CORREIA MENDES</option>
+        <option>RYAN GABRIEL PEREIRA DE SOUSA</option>
+        <option>SAMUEL ALVES DA COSTA</option>
+        <option>SOFIA AZEREDO CUBAS</option>
+        <option>SOPHIA LACERDA ANDRADE</option>
+        <option>THAYLLA DUANNY VENANCIO SCAQUITO</option>
+        <option>THAYS RODRIGUES DA SILVA</option>
+        <option>VICTOR HENRIQUE BENVINDO</option>
+        <option>FELIPE GONZALES PATRICIO ALVES</option>
+        <option>ISAAC FERNANDES DE ANDRADE</option>
+        <option>ANGELLO GABRIEL CUTOLO TEIXEIRA</option>
+        <option>ARTHUR HENRIQUE MARQUES ENDRES</option>
+        <option>BIANCA CRISTINA DA SILVA SANTOS</option>
+        <option>BRAYAN DA SILVA FERREIRA</option>
+        <option>BRAYAN DUARTE DA SILVA</option>
+        <option>BRUNO LUIZ NASCIMENTO DA SILVA</option>
+        <option>DANIEL RODRIGUES SANTOS DIAS</option>
+        <option>DIEGO BARRIO NOVO AMARAL DE ANDRADE</option>
+        <option>FABRICIO LORENZO PARMA</option>
+        <option>GABRIELA PAULINA FERREIRA MARTINS</option>
+        <option>GUSTAVO SANTANA DE OLIVEIRA</option>
+        <option>HYLLARY VICTORIA NERCIR DE FRANÇA</option>
+        <option>JHONAS KEYRRISON TROCATIS DA SILVA</option>
+        <option>JULIA VITORIA SEVERA LINS</option>
+        <option>KAMILLY VITÓRIA RODRIGUES DE SOUZA</option>
+        <option>KESIA DOS SANTOS SOSTE</option>
+        <option>LAURA BORGES AZEVEDO</option>
+        <option>LUAN DANTAS NICOLUCCI</option>
+        <option>LUAN RIBEIRO SILVA</option>
+        <option>MANUELA ANGELICA TRIANA DA SILVA</option>
+        <option>MARCELO GOMES THOMAZ</option>
+        <option>MARCOS CELIO DE JESUS</option>
+        <option>MARIA EDUARDA MACHADO DE LIMA</option>
+        <option>NICOLLAS RODRIGUES TAVARES</option>
+        <option>PAULO CESAR LAMBERT GONÇALVES</option>
+        <option>RHAYANNE NAYARA SANTOS BOMFIM</option>
+        <option>VICTOR HUGO PRADO SANTOS DE BARROS</option>
+        <option>WALLIF LEANDRO DE JESUS LESSA</option>
+      </select>
+      <label for="serie">Série:</label>
+      <select id="serie" name="serie" required>
+        <option value="">Selecione</option>
+        <option value="7ºA">7ºA</option>
+        <option value="7ºB">7ºB</option>
+      </select>
+    </div>
+    <div class="date-container">
+      <label for="data">Data:</label>
+      <input type="date" id="data" name="data" required>
+    </div>
+    <h2>ATIVIDADE DE CIÊNCIAS (2° BIMESTRE)</h2>
+  </div>
+
+  <div id="questoes"></div>
+
+  <button type="submit" class="button-submit">Enviar</button>
+  <div class="success-message" id="successMessage">Enviado com sucesso!</div>
+</form>
+
+<script>
+const questoes = [
+  "Com base nos seus conhecimentos sobre fontes de energia, descreva dois problemas que podem ocorrer em cidades que utilizam apenas combustíveis fósseis. Explique também de que forma as fontes de energia renováveis podem minimizar esses problemas.",
+  "Você foi convidado a participar de uma campanha contra o desmatamento em sua cidade. Elabore um texto explicando, de maneira clara e argumentativa, por que o desmatamento e as queimadas prejudicam o meio ambiente e a qualidade de vida das pessoas.",
+  "O efeito estufa é um fenômeno natural essencial para a vida na Terra. No entanto, suas alterações podem trazer sérios problemas. Explique, com suas palavras, o que acontece quando o efeito estufa é intensificado pelas atividades humanas.",
+  "Analise: qual você considera ser a principal consequência das mudanças climáticas na vida humana? Justifique sua resposta, utilizando como exemplo um impacto que poderia ocorrer no Brasil.",
+  "Diversas regiões brasileiras têm enfrentado enchentes e secas severas. Relacione esses eventos extremos com as mudanças climáticas e explique como eles afetam o meio ambiente e a sociedade.",
+  "Imagine que você deve planejar uma campanha de conscientização ambiental na sua escola. Proponha uma atividade e explique como ela poderia contribuir para melhorar a relação dos alunos com o meio ambiente.",
+  "Cite uma atitude sustentável que você já pratica ou poderia praticar no seu dia a dia. Explique como essa atitude ajuda a preservar o planeta.",
+  "Escolha um dos 17 Objetivos de Desenvolvimento Sustentável (ODS) da ONU. Explique, de forma argumentativa, por que esse objetivo é essencial para garantir uma vida melhor para todos.",
+  "Pensando nos desafios do meio ambiente, sugira uma nova meta que poderia ser incluída na Agenda 2030. Descreva a sua proposta e explique como ela poderia transformar o planeta para melhor.",
+  "Sua turma foi escolhida para desenvolver um plano de ação para tornar a escola mais sustentável. Sugira uma ação prática e explique sua importância para a preservação do meio ambiente."
+];
+
+const questoesContainer = document.getElementById('questoes');
+
+questoes.forEach((pergunta, index) => {
+  const container = document.createElement('div');
+  container.className = 'container';
+
+  container.innerHTML = `
+    <div class="question">
+      <div class="timer" id="timer${index}">00:00</div>
+      <span class="number">${index + 1})</span> ${pergunta}
+    </div>
+    <textarea name="resposta${index}" id="resposta${index}" required></textarea>
+  `;
+  questoesContainer.appendChild(container);
+
+  setupTimer(index);
+});
+
+function setupTimer(index) {
+  let typingTimer;
+  let seconds = 0;
+  let timerRunning = false;
+
+  const textarea = document.getElementById(`resposta${index}`);
+  const timerDisplay = document.getElementById(`timer${index}`);
+
+  function updateTimer() {
+    const min = String(Math.floor(seconds / 60)).padStart(2, '0');
+    const sec = String(seconds % 60).padStart(2, '0');
+    timerDisplay.textContent = `${min}:${sec}`;
+  }
+
+  textarea.addEventListener('input', () => {
+    if (!timerRunning) {
+      timerRunning = true;
+      typingTimer = setInterval(() => {
+        seconds++;
+        updateTimer();
+      }, 1000);
+    }
+    clearTimeout(textarea.timeout);
+    textarea.timeout = setTimeout(() => {
+      clearInterval(typingTimer);
+      timerRunning = false;
+    }, 2000);
+  });
+}
+
+function handleSubmit(event) {
+  event.preventDefault();
+  const form = document.getElementById('atividadeForm');
+  const formData = new FormData(form);
+
+  fetch("https://script.google.com/macros/s/AKfycbx6l03eNfMrrFvuytFbp3Tu1vGWiuFbBrmPd8K27yDMrlcKcKFcvf2Qewuvj3GSSc4/exec", {
+    method: "POST",
+    body: formData,
+  })
+  .then(response => response.text())
+  .then(data => {
+    document.getElementById('successMessage').style.display = 'block';
+    form.reset();
+    window.scrollTo(0, 0);
+  })
+  .catch(error => {
+    alert('Erro ao enviar: ' + error);
+  });
+}
+</script>
+
+</body>
+</html>
