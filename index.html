@@ -277,7 +277,7 @@ function handleSubmit(event) {
   // Enviar como JSON no campo "respostas"
   formData.append("respostas", JSON.stringify(respostas));
 
-  fetch("https://script.google.com/macros/s/AKfycbxnI23oI0nUKFcbOrZGfaqTgmp3Oca_AkBzoVjCqT-1gIHMYadxznZl4-MCAhEf-9Q/exec", {
+  fetch("https://script.google.com/macros/s/AKfycbxZNmVH3FSd7pTHV6FlTjxt04CDuGoX0SN3hwXr_8N8orthIPnxinksxCPxd36xJoU/exec", {
     method: "POST",
     body: formData,
   })
